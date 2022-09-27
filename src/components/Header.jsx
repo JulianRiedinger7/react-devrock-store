@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
 	const { cart } = useContext(Context);
 
-	//const cartNumber = cart.reduce((acc, product) => acc + product.quantity, 0);
+	const cartNumber = cart.reduce((acc, product) => acc + product.quantity, 0);
 
 	return (
 		<header className="h-16 py-4 mb-10">
@@ -18,7 +18,7 @@ const Header = () => {
 				<h1 className="text-2xl text-red-400">DevRock Store</h1>
 				<Link to="/cart" className="flex items-center">
 					<AiOutlineShoppingCart size={40} />
-					{cart.length > 0 && <p className="text-red-400">{cart.length}</p>}
+					{cart.length > 0 && <p className="text-red-400">{cartNumber}</p>}
 				</Link>
 			</nav>
 		</header>

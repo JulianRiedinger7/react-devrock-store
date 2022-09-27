@@ -13,6 +13,7 @@ export function reducer(state, action) {
 	const { type, payload } = action;
 	switch (type) {
 		case 'GET_PRODUCTS':
+			payload.forEach((product) => (product.quantity = 0));
 			return { ...state, products: payload };
 
 		case 'DELETE_FROM_CART':
@@ -22,13 +23,23 @@ export function reducer(state, action) {
 			};
 
 		case 'ADD_TO_CART':
-			return {
-				...state,
-				cart: [
-					...state.cart,
-					state.products.find((product) => product.id === payload),
-				],
-			};
+			if (state.cart.find((product) => product.id == payload) == undefined) {
+				return {
+					...state,
+					cart: [
+						...state.cart,
+						{
+							...state.products.find((product) => product.id === payload),
+							quantity: 1,
+						},
+					],
+				};
+			} else {
+				state.cart.find((product) => product.id == payload).quantity += 1;
+				return {
+					...state,
+				};
+			}
 
 		default:
 			return state;

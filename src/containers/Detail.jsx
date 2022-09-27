@@ -18,10 +18,10 @@ const Detail = () => {
 				alt={nombre}
 				className="w-60 aspect-square object-contain"
 			/>
-			<h3>{nombre}</h3>
-			<small>{medidas}</small>
+			<h3 className="font-bold text-2xl">{nombre}</h3>
+			<small className="text-zinc-600">{medidas}</small>
 			<div className="flex items-center gap-2">
-				<p>AR${precio}</p>
+				<p className="font-semibold text-xl">AR${precio}</p>
 				<IoMdAddCircle
 					className="text-red-400"
 					size={42}

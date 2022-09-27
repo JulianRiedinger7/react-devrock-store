@@ -26,7 +26,11 @@ export const ContextProvider = ({ children }) => {
 	};
 
 	const getTotalPrice = () =>
-		state.cart && state.cart.reduce((acc, product) => acc + product.precio, 0);
+		state.cart &&
+		state.cart.reduce(
+			(acc, product) => acc + product.precio * product.quantity,
+			0
+		);
 
 	return (
 		<Context.Provider

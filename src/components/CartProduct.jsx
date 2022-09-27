@@ -13,9 +13,10 @@ const CartProduct = ({ nombre, precio, img, id, quantity }) => {
 				className="w-20 aspect-square object-contain"
 			/>
 			<div className="flex flex-col w-40">
-				<h3>{nombre}</h3>
+				<h3 className="font-bold">{nombre}</h3>
 				<p>
-					AR${precio} x {quantity}
+					AR${precio} x {quantity}{' '}
+					<span className="font-semibold">(${precio * quantity})</span>
 				</p>
 				<hr className="w-100 border border-black" />
 			</div>

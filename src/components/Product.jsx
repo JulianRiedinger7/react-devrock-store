@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom';
 const Product = ({ img, nombre, precio, medidas, id }) => {
 	const { addToCart } = useContext(Context);
 
-	/* Cambiar que al hacer click en el añadir tambien nos lleva hacia la descripcion */
 	return (
 		<Link
 			to={`/detail/${id}`}
