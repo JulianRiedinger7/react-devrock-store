@@ -17,16 +17,16 @@ export const ContextProvider = ({ children }) => {
 		}
 	};
 
-	const addToCart = (evt, id) => {
-		evt.preventDefault();
-		if (state.cart.find((item) => item[0].id === id)) {
-			state.cart
-				.find((item) => item[0].id === id)
-				.map((el) => {
-					el.quantity++;
-					return el;
-				});
+	const addToCart = (id) => {
+		const itemFound = state.cart.find((item) => item[0].id === id);
+
+		if (itemFound) {
+			itemFound.map((el) => {
+				el.quantity++;
+				return el;
+			});
 			totalQuantity();
+			localStorage.setItem('cart', JSON.stringify(state.cart));
 		} else {
 			dispatch({ type: 'ADD_TO_CART', payload: id });
 		}
@@ -36,8 +36,13 @@ export const ContextProvider = ({ children }) => {
 		dispatch({ type: TYPES.DELETE_FROM_CART, payload: id });
 	};
 
+	const clear = () => {
+		dispatch({ type: TYPES.CLEAR });
+	};
+
 	useEffect(() => {
 		totalQuantity();
+		localStorage.setItem('cart', JSON.stringify(state.cart));
 	}, [state.cart]);
 
 	const totalQuantity = () => {
@@ -50,10 +55,6 @@ export const ContextProvider = ({ children }) => {
 			(acc, product) => acc + product[0].precio * product[0].quantity,
 			0
 		);
-
-	const getSingleProduct = (id) =>
-		state.products.find((product) => product.id === id);
-
 	return (
 		<Context.Provider
 			value={{
@@ -64,7 +65,7 @@ export const ContextProvider = ({ children }) => {
 				addToCart,
 				deleteFromCart,
 				getTotalPrice,
-				getSingleProduct,
+				clear,
 			}}
 		>
 			{children}

@@ -6,6 +6,11 @@ import { Link } from 'react-router-dom';
 const Product = ({ img, nombre, precio, medidas, id }) => {
 	const { addToCart } = useContext(Context);
 
+	const handleClick = (evt) => {
+		evt.preventDefault();
+		addToCart(id);
+	};
+
 	return (
 		<Link
 			to={`/detail/${id}`}
@@ -23,7 +28,7 @@ const Product = ({ img, nombre, precio, medidas, id }) => {
 				<IoMdAddCircle
 					className="text-red-400"
 					size={42}
-					onClick={(evt) => addToCart(evt, id)}
+					onClick={(evt) => handleClick(evt)}
 				/>
 			</div>
 		</Link>

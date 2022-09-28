@@ -1,14 +1,26 @@
 import { useContext } from 'react';
 import CartProduct from '../components/CartProduct';
 import { Context } from '../context/Context';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Cart = () => {
-	const { cart, getTotalPrice } = useContext(Context);
+	const { cart, getTotalPrice, clear } = useContext(Context);
 
-	let totalPrice = getTotalPrice();
-	/* if (cart.length > 0) {
-		totalPrice = getTotalPrice();
-	} */
+	const totalPrice = getTotalPrice();
+
+	const handleClick = () => {
+		toast.success(`Tu compra se ha registrado correctamente!`, {
+			position: 'bottom-right',
+			autoClose: 2500,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+		});
+		clear();
+	};
 
 	return (
 		<>
@@ -24,10 +36,29 @@ const Cart = () => {
 				)}
 			</section>
 			{cart.length > 0 && (
-				<h2 className="text-right w-11/12 mt-3 text-2xl">
-					Total <span className="font-bold">AR${totalPrice}</span>
-				</h2>
+				<div className="flex items-center justify-between w-11/12 mx-auto mt-2 space-x-4">
+					<h2 className="margin-0 text-2xl">
+						Total <span className="font-bold">AR${totalPrice}</span>
+					</h2>
+					<button
+						className="px-2 py-2 bg-red-400 text-white  tracking-wide rounded-full"
+						onClick={handleClick}
+					>
+						Finalizar Compra
+					</button>
+				</div>
 			)}
+			<ToastContainer
+				position="bottom-right"
+				autoClose={2500}
+				hideProgressBar={false}
+				newestOnTop={true}
+				closeOnClick={true}
+				rtl={false}
+				pauseOnFocusLoss={false}
+				draggable
+				pauseOnHover
+			/>
 		</>
 	);
 };

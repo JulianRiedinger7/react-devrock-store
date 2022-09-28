@@ -3,11 +3,12 @@ export const TYPES = {
 	DELETE_FROM_CART: 'DELETE_FROM_CART',
 	GET_PRODUCTS: 'GET_PRODUCTS',
 	TOTAL_QUANTITY: 'TOTAL_QUANTITY',
+	CLEAR: 'CLEAR',
 };
 
 export const initialState = {
 	products: [],
-	cart: [],
+	cart: JSON.parse(localStorage.getItem('cart')) || [],
 	quantity: 0,
 };
 
@@ -35,6 +36,14 @@ export function reducer(state, action) {
 							return el;
 						}),
 				],
+			};
+
+		case 'CLEAR':
+			localStorage.removeItem('cart');
+			return {
+				products: [],
+				cart: JSON.parse(localStorage.getItem('cart')) || [],
+				quantity: 0,
 			};
 
 		case 'TOTAL_QUANTITY':
