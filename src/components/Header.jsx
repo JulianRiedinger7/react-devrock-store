@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { IoIosArrowBack } from 'react-icons/io';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { Context } from '../context/Context';

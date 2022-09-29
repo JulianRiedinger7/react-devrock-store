@@ -14,7 +14,7 @@ const Product = ({ img, nombre, precio, medidas, id }) => {
 	return (
 		<Link
 			to={`/detail/${id}`}
-			className="w-40 border border-slate-500 p-4 rounded-md flex flex-col"
+			className="w-40 border border-slate-500 p-4 rounded-md flex flex-col shadow-lg"
 		>
 			<img
 				src={img}

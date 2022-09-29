@@ -24,7 +24,11 @@ const Detail = () => {
 			{Object.keys(item).length !== 0 ? (
 				<ProductDetail {...item} />
 			) : (
-				<CircleLoader color="#36d7b7" size={100} className="mx-auto" />
+				<CircleLoader
+					color="#36d7b7"
+					size={100}
+					className="mx-auto min-h-screen"
+				/>
 			)}
 		</>
 	);

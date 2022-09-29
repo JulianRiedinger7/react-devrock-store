@@ -9,7 +9,7 @@ import { ContextProvider } from '../context/Context';
 
 function App() {
 	return (
-		<main className="text-lg p-2 max-w-sm mx-auto">
+		<main className="text-lg p-2 max-w-sm mx-auto bg-slate-200">
 			<BrowserRouter>
 				<ContextProvider>
 					<Header />
