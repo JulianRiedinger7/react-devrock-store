@@ -41,7 +41,7 @@ const Cart = () => {
 						Total <span className="font-bold">AR${totalPrice}</span>
 					</h2>
 					<button
-						className="px-2 py-2 bg-red-400 text-white  tracking-wide rounded-full"
+						className="px-2 py-2 bg-red-400 text-white  tracking-wide rounded-full hover:opacity-90 transition-all ease-in-out"
 						onClick={handleClick}
 					>
 						Finalizar Compra

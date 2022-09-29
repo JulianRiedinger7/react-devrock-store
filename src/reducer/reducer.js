@@ -39,7 +39,6 @@ export function reducer(state, action) {
 			};
 
 		case 'CLEAR':
-			localStorage.removeItem('cart');
 			return {
 				products: [],
 				cart: JSON.parse(localStorage.getItem('cart')) || [],

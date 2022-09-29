@@ -12,6 +12,7 @@ export const ContextProvider = ({ children }) => {
 			const res = await fetch(url);
 			const data = await res.json();
 			dispatch({ type: TYPES.GET_PRODUCTS, payload: data });
+			return data;
 		} catch (error) {
 			console.error(error);
 		}
@@ -37,6 +38,7 @@ export const ContextProvider = ({ children }) => {
 	};
 
 	const clear = () => {
+		localStorage.removeItem('cart');
 		dispatch({ type: TYPES.CLEAR });
 	};
 
