@@ -24,7 +24,7 @@ const Cart = () => {
 
 	return (
 		<>
-			<section className="h-[70vh] overflow-scroll w-11/12 border-2 border-slate-800 rounded-md max-w-sm mx-auto p-2">
+			<section className="min-h-[calc(100vh-184px)] overflow-scroll overflow-x-hidden w-11/12 border-2 border-slate-800 rounded-md max-w-sm mx-auto p-2">
 				{cart.length === 0 ? (
 					<h2>No tenes productos en el carrito</h2>
 				) : (

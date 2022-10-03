@@ -2,12 +2,23 @@ import { useContext } from 'react';
 import { Context } from '../context/Context';
 import { IoMdAddCircle } from 'react-icons/io';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Product = ({ img, nombre, precio, medidas, id }) => {
 	const { addToCart } = useContext(Context);
 
 	const handleClick = (evt) => {
 		evt.preventDefault();
+		toast.success(`${nombre} se ha agregado al carrito!`, {
+			position: 'bottom-right',
+			autoClose: 2500,
+			hideProgressBar: false,
+			closeOnClick: true,
+			pauseOnHover: true,
+			draggable: true,
+			progress: undefined,
+		});
 		addToCart(id);
 	};
 

@@ -23,7 +23,7 @@ const ProductDetail = ({ img, nombre, descripcion, precio, medidas, id }) => {
 
 	return (
 		<>
-			<div className="flex flex-col items-center px-4">
+			<div className="flex flex-col items-center px-4 min-h-[calc(100vh-184px)]">
 				<img
 					src={img}
 					alt={nombre}
