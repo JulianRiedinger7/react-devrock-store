@@ -23,8 +23,8 @@ const Cart = () => {
 	};
 
 	return (
-		<>
-			<section className="min-h-[calc(100vh-184px)] overflow-scroll overflow-x-hidden w-11/12 border-2 border-slate-800 rounded-md max-w-sm mx-auto p-2">
+		<section className="min-h-[calc(100vh-184px)]">
+			<div className="h-[60vh] overflow-scroll overflow-x-hidden w-11/12 border-2 border-slate-800 rounded-md max-w-sm mx-auto p-2">
 				{cart.length === 0 ? (
 					<h2>No tenes productos en el carrito</h2>
 				) : (
@@ -34,7 +34,7 @@ const Cart = () => {
 						))}
 					</div>
 				)}
-			</section>
+			</div>
 			{cart.length > 0 && (
 				<div className="flex items-center justify-between w-11/12 mx-auto mt-2 space-x-4">
 					<h2 className="margin-0 text-2xl">
@@ -59,7 +59,7 @@ const Cart = () => {
 				draggable
 				pauseOnHover
 			/>
-		</>
+		</section>
 	);
 };
 
